@@ -1,0 +1,15 @@
+<h1>EMPLOYEES REGISTERED</h1>
+<p><a href="add-company">Add an employee</a></p>
+
+<ul>
+    {% for employee in employees %}
+    <li>
+        {{ employee.employee_name }}
+    </li>
+    <li>
+        {{ employee.employee_position}}
+    </li>
+    {% empty %}
+    <h3>No employee registered yet</h3>
+     {% endfor %}
+</ul>

@@ -1,0 +1,17 @@
+<h1>COMPANIES REGISTERED</h1>
+<p><a href="add-company">Add a company</a></p>
+
+<ul>
+    {% for employee in employees %}
+    <a href="{% url 'employee_list' employee.slug %}">
+        {% for company in COMPANIES %}
+        <li>
+                {{ company.company_name }}
+        </li>
+        {% empty %}
+        <h3>No company registered yet</h3>
+        {% endfor %}
+    </a>
+    
+     {% endfor %}
+</ul>

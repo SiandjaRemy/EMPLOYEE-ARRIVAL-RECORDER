@@ -6,7 +6,14 @@ from .forms import EmployeeForm
 # Create your views here.
 
 def index(request):
-    return render(request, "index.html") #Company list
+    companies = Company.objects.all()
+    supervisor = Supervisor.objects.all()
+
+    context = {
+        "companies":companies,
+        "supervisor":supervisor
+    }
+    return render(request, "index.html", context) #Company list
 
 def addCompany(request):
     return render(request, "addcom.html")
@@ -23,11 +30,15 @@ def newCompany(request):
     
     return render(request, "addcom.html")
 
-def empList(request, slug):
-    company = get_object_or_404(Company, slug=slug)
-    employee = Employee.objects.all()
+def empList(request, com):
     
-    return render(request, "emplist.hrml")
+    employees = get_object_or_404(Employees, employee_company=com)
+    
+    context = {
+
+        "employees":employees
+    }
+    return render(request, "index.hrml", context)
 
 
 def addEmployee(request):

@@ -1,0 +1,13 @@
+<h1>COMPANY FORM</h1>
+<p><a href="/">Go back</a></p>
+
+<form action="new-company" method="POST">
+    {% csrf_token %}
+    <label for="">Company name</label>
+    <input type="text" name="company_name" required placeholder="Enter company name">
+    <br>
+    <label for="">Company description</label>
+    <input type="text" name="company_description" required placeholder="Enter company description">
+    <br>
+    <input type="submit" value="Add company">
+</form>
